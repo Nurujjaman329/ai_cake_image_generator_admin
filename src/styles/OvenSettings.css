@@ -42,7 +42,7 @@
 
 .btn-primary {
   padding: 12px 24px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--primary-gradient);
   color: white;
   border-radius: var(--radius-md);
   font-weight: 600;
@@ -113,7 +113,7 @@
 .temp-value {
   font-size: 72px;
   font-weight: 700;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Original Surfer', sans-serif;
   color: var(--text-primary);
   line-height: 1;
   margin-bottom: 8px;
@@ -127,31 +127,13 @@
   letter-spacing: 2px;
 }
 
-.mode-display {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 28px;
-  background: white;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-}
-
-.mode-icon {
-  font-size: 28px;
-}
-
-.mode-name {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
 /* Quick Stats */
 .quick-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .stat-item {
@@ -215,7 +197,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Original Surfer', sans-serif;
   font-weight: 600;
 }
 
@@ -276,7 +258,7 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--primary-gradient);
   cursor: pointer;
   box-shadow: var(--shadow-md);
   transition: all var(--transition-fast);
@@ -306,30 +288,9 @@
 
 .temperature-fill {
   height: 100%;
-  background: linear-gradient(90deg, #4facfe 0%, #f5576c 100%);
+  background: var(--warm-gradient);
   transition: width 0.5s ease;
   border-radius: 16px;
-}
-
-/* Humidity & Fan Gauges */
-.humidity-gauge,
-.fan-gauge {
-  height: 24px;
-  background: var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.humidity-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
-  transition: width 0.5s ease;
-}
-
-.fan-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-  transition: width 0.5s ease;
 }
 
 /* Time Display */
@@ -337,129 +298,52 @@
   font-size: 32px;
   font-weight: 700;
   color: var(--primary);
-  font-family: 'Playfair Display', serif;
-}
-
-.total-time {
-  font-size: 36px;
-  font-weight: 700;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-family: 'Playfair Display', serif;
-}
-
-/* Mode Badge */
-.mode-badge {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 20px;
-  background: var(--background);
-  border-radius: var(--radius-md);
-  font-size: 15px;
-  color: var(--text-secondary);
-}
-
-.mode-badge .mode-icon {
-  font-size: 24px;
-}
-
-/* Oven Modes Grid */
-.oven-modes-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px;
-}
-
-.oven-mode-option {
-  padding: 16px;
-  background: var(--background);
-  border-radius: var(--radius-md);
-  text-align: center;
-  transition: all var(--transition-fast);
-  border: 2px solid transparent;
-}
-
-.oven-mode-option:hover {
-  background: var(--surface-hover);
-  transform: translateY(-4px);
-}
-
-.oven-mode-option.selected {
-  border-color: var(--primary);
-  background: var(--primary-light);
-  color: white;
-}
-
-.mode-icon-large {
-  font-size: 36px;
-  margin-bottom: 8px;
-}
-
-.mode-label {
-  font-weight: 600;
-  font-size: 14px;
-  margin-bottom: 4px;
-}
-
-.mode-description {
-  font-size: 11px;
-  color: var(--text-muted);
-  line-height: 1.4;
-}
-
-/* Rack Positions */
-.rack-positions {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.rack-option {
-  padding: 14px 18px;
-  background: var(--background);
-  border-radius: var(--radius-md);
-  text-align: left;
-  transition: all var(--transition-fast);
-  border: 2px solid transparent;
-}
-
-.rack-option:hover {
-  background: var(--surface-hover);
-}
-
-.rack-option.selected {
-  border-color: var(--primary);
-  background: var(--primary-light);
-  color: white;
-}
-
-.rack-label {
-  font-weight: 600;
-  font-size: 14px;
-  margin-bottom: 4px;
-}
-
-.rack-description {
-  font-size: 12px;
-  color: var(--text-muted);
-}
-
-.rack-display {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--primary);
-  margin-bottom: 6px;
-}
-
-.rack-description-small {
-  font-size: 13px;
-  color: var(--text-secondary);
+  font-family: 'Original Surfer', sans-serif;
 }
 
 /* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: var(--shadow-xl);
+  animation: slideIn 0.3s ease-out;
+}
+
+.modal h3 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.modal p {
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
 .btn-confirm-reset {
   padding: 12px 24px;
   background: var(--primary);
@@ -471,6 +355,14 @@
 
 .btn-confirm-reset:hover {
   background: var(--primary-dark);
+}
+
+.error-message {
+  display: block;
+  color: var(--error);
+  font-size: 13px;
+  margin-top: 6px;
+  font-weight: 500;
 }
 
 /* Responsive */
@@ -512,10 +404,6 @@
   }
 
   .quick-stats {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .oven-modes-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
 }

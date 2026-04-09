@@ -1,20 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import '../styles/Sidebar.css';
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   const [isMobile, setIsMobile] = useState(false);
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     checkIfMobile();
     window.addEventListener('resize', checkIfMobile);
-    
+
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
+
+  const handleLogout = async () => {
+    await logout();
+    navigate('/login', { replace: true });
+  };
 
   const menuItems = [
     { path: '/', icon: '📊', label: 'Dashboard' },
@@ -23,11 +31,15 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
     { path: '/oven-settings', icon: '🔥', label: 'Oven Settings' },
   ];
 
+  const userName = user ? user.name : 'Admin';
+  const userRole = user ? user.role : 'Baker';
+  const userEmail = user ? user.email : '';
+
   return (
     <>
       {/* Overlay for mobile only */}
       {isMobile && isOpen && <div className="sidebar-overlay" onClick={toggleSidebar}></div>}
-      
+
       <aside className={`sidebar ${isOpen ? 'open' : 'collapsed'}`}>
         <div className="sidebar-header">
           <div className="logo">
@@ -55,14 +67,21 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 
         <div className="sidebar-footer">
           <div className="user-info">
-            <div className="user-avatar">A</div>
+            <div className="user-avatar">
+              {userName.charAt(0).toUpperCase()}
+            </div>
             {isOpen && (
               <div className="user-details">
-                <div className="user-name">Admin</div>
-                <div className="user-role">Baker</div>
+                <div className="user-name">{userName}</div>
+                <div className="user-role" title={userEmail}>{userRole}</div>
               </div>
             )}
           </div>
+          {isOpen && (
+            <button className="logout-btn" onClick={handleLogout} title="Logout">
+              🚪 Logout
+            </button>
+          )}
         </div>
       </aside>
     </>
