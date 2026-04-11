@@ -6,6 +6,7 @@ import '../../styles/Login.css';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const { login } = useAuth();
@@ -32,75 +33,95 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <div className="login-background">
-        <div className="circle circle-1"></div>
-        <div className="circle circle-2"></div>
-        <div className="circle circle-3"></div>
+      {/* Left Side - Login Form */}
+      <div className="login-left">
+        <div className="login-form-wrapper">
+          <div className="login-header">
+            <div className="login-logo">🧁</div>
+            <h1 className="login-title">Welcome back!</h1>
+            <p className="login-subtitle">Please enter your details</p>
+          </div>
+
+          <form onSubmit={handleSubmit} className="login-form">
+            {error && (
+              <div className="error-message">
+                <span className="error-icon">⚠️</span>
+                {error}
+              </div>
+            )}
+
+            <div className="form-group">
+              <label htmlFor="email" className="form-label">
+                Email
+              </label>
+              <input
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="form-input"
+                placeholder="Enter your email"
+                required
+                autoComplete="email"
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="password" className="form-label">
+                Password
+              </label>
+              <input
+                id="password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="form-input"
+                placeholder="Enter your password"
+                required
+                autoComplete="current-password"
+              />
+            </div>
+
+            <div className="form-options">
+              <label className="remember-me">
+                <input
+                  type="checkbox"
+                  checked={rememberMe}
+                  onChange={(e) => setRememberMe(e.target.checked)}
+                />
+                <span>Remember me</span>
+              </label>
+              <a href="#" className="forgot-password">
+                Forgot password?
+              </a>
+            </div>
+
+            <button
+              type="submit"
+              className="login-button"
+              disabled={loading}
+            >
+              {loading ? (
+                <span className="loading-spinner"></span>
+              ) : (
+                'Sign In'
+              )}
+            </button>
+          </form>
+
+          <div className="login-footer">
+            <p>© 2026 Felicitas Bakery. All rights reserved.</p>
+          </div>
+        </div>
       </div>
 
-      <div className="login-card">
-        <div className="login-header">
-          <div className="login-logo">🧁</div>
-          <h1 className="login-title">Felicitas Bakery</h1>
-          <p className="login-subtitle">Admin Panel Login</p>
-        </div>
-
-        <form onSubmit={handleSubmit} className="login-form">
-          {error && (
-            <div className="error-message">
-              <span className="error-icon">⚠️</span>
-              {error}
-            </div>
-          )}
-
-          <div className="form-group">
-            <label htmlFor="email" className="form-label">
-              Email Address
-            </label>
-            <input
-              id="email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="form-input"
-              placeholder="admin@felicitasbakery.com"
-              required
-              autoComplete="email"
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="password" className="form-label">
-              Password
-            </label>
-            <input
-              id="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="form-input"
-              placeholder="Enter your password"
-              required
-              autoComplete="current-password"
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="login-button"
-            disabled={loading}
-          >
-            {loading ? (
-              <span className="loading-spinner"></span>
-            ) : (
-              'Login'
-            )}
-          </button>
-        </form>
-
-        <div className="login-footer">
-          <p>© 2026 Felicitas Bakery. All rights reserved.</p>
-        </div>
+      {/* Right Side - Hero Image */}
+      <div className="login-right">
+        <img
+          src="/login-hero.png"
+          alt="Delicious bakery pastry"
+          className="hero-image"
+        />
       </div>
     </div>
   );
