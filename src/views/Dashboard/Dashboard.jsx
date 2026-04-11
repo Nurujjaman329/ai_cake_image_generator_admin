@@ -30,89 +30,83 @@ const Dashboard = () => {
     });
   };
 
-  const statCards = [
-    {
-      title: 'Total Ingredients',
-      value: stats.totalIngredients,
-      icon: '🥘',
-      gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      link: '/ingredients'
-    },
-    {
-      title: 'Categories',
-      value: stats.totalCategories,
-      icon: '📁',
-      gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-      link: '/categories'
-    },
-    {
-      title: 'Oven Temperature',
-      value: `${stats.ovenTemp}°C`,
-      icon: '🔥',
-      gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-      link: '/oven-settings'
-    }
-  ];
-
   return (
-    <div className="dashboard fade-in">
-      <div className="dashboard-header">
-        <h1 className="dashboard-title">
-          <span className="title-emoji">🧁</span>
-          Bakery Admin Dashboard
-        </h1>
-        <p className="dashboard-subtitle">Manage your ingredients, categories, and oven settings</p>
+    <div className="dashboard">
+      {/* Header */}
+      <div className="dashboard-header-new">
+        <div className="header-text">
+          <h1 className="dashboard-title-new">Dashboard</h1>
+          <p className="dashboard-subtitle-new">Welcome back! Here's what's happening today.</p>
+        </div>
+        <div className="header-actions">
+          <button className="notification-btn" title="Notifications">
+            🔔
+          </button>
+          <div className="user-profile">
+            <div className="user-avatar-small">A</div>
+            <span className="user-name-text">Administrator</span>
+            <span className="dropdown-icon">▼</span>
+          </div>
+        </div>
       </div>
 
-      <div className="stats-grid">
-        {statCards.map((stat, index) => (
-          <Link to={stat.link} key={index} className="stat-card">
-            <div className="stat-card-bg" style={{ background: stat.gradient }}></div>
-            <div className="stat-card-content">
-              <div className="stat-icon">{stat.icon}</div>
-              <div className="stat-info">
-                <div className="stat-value">{stat.value}</div>
-                <div className="stat-label">{stat.title}</div>
-              </div>
-            </div>
-          </Link>
-        ))}
+      {/* Stats Cards */}
+      <div className="stats-cards-row">
+        <div className="stat-card-new">
+          <div className="stat-card-left">
+            <div className="stat-label-new">Total Ingredients</div>
+            <div className="stat-value-new">{stats.totalIngredients}</div>
+          </div>
+          <div className="stat-icon-box">
+            📦
+          </div>
+        </div>
+
+        <div className="stat-card-new">
+          <div className="stat-card-left">
+            <div className="stat-label-new">Total Categories</div>
+            <div className="stat-value-new">{stats.totalCategories}</div>
+          </div>
+          <div className="stat-icon-box">
+            📁
+          </div>
+        </div>
+
+        <div className="stat-card-new">
+          <div className="stat-card-left">
+            <div className="stat-label-new">Oven Temperature</div>
+            <div className="stat-value-new">{stats.ovenTemp}°C</div>
+          </div>
+          <div className="stat-icon-box">
+            🔥
+          </div>
+        </div>
       </div>
 
-      <div className="dashboard-content">
-        <div className="dashboard-section">
-          <h2 className="section-title">
-            <span>📋</span>
-            Recent Ingredients
-          </h2>
-          <div className="recent-list">
+      {/* Content Grid */}
+      <div className="dashboard-content-grid">
+        {/* Recent Ingredients Table */}
+        <div className="recent-ingredients-section">
+          <h2 className="section-title-new">Recent Ingredients</h2>
+          <div className="table-wrapper-new">
             {stats.recentIngredients.length > 0 ? (
-              <table className="data-table">
+              <table className="recent-table">
                 <thead>
                   <tr>
                     <th>Name</th>
                     <th>Category</th>
-                    <th>Description</th>
                   </tr>
                 </thead>
                 <tbody>
                   {stats.recentIngredients.map(ingredient => {
                     const category = categoryController.getCategoryById(ingredient.categoryId);
-                    
                     return (
                       <tr key={ingredient.id}>
+                        <td className="ingredient-cell-new">{ingredient.name}</td>
                         <td>
-                          <span className="ingredient-name">{ingredient.name}</span>
-                        </td>
-                        <td>
-                          <span className="category-badge" style={{ 
-                            background: category ? `var(--${category.color}-secondary, #667eea)` : '#667eea'
-                          }}>
+                          <span className="category-pill">
                             {category?.name || 'Uncategorized'}
                           </span>
-                        </td>
-                        <td className="description-cell">
-                          {ingredient.description || '-'}
                         </td>
                       </tr>
                     );
@@ -120,29 +114,21 @@ const Dashboard = () => {
                 </tbody>
               </table>
             ) : (
-              <div className="empty-state">
-                <div className="empty-icon">📦</div>
+              <div className="empty-state-new">
                 <p>No ingredients yet. Add your first ingredient!</p>
-                <Link to="/ingredients" className="btn-primary">Add Ingredient</Link>
+                <Link to="/ingredients/add" className="btn-add-ingredient">Add Ingredient</Link>
               </div>
             )}
           </div>
         </div>
 
-        <div className="dashboard-section">
-          <h2 className="section-title">
-            <span>🔥</span>
-            Quick Oven Settings
-          </h2>
-          <div className="oven-preview">
-            <div className="oven-visual">
-              <div className="oven-icon">🎂</div>
-              <div className="oven-temp">{stats.ovenTemp}°C</div>
-            </div>
-            <Link to="/oven-settings" className="btn-secondary">
-              Adjust Settings →
-            </Link>
-          </div>
+        {/* Oven Preview Card */}
+        <div className="oven-preview-card">
+          <div className="oven-icon-display">🧁</div>
+          <div className="oven-temp-display">{stats.ovenTemp}°C</div>
+          <Link to="/oven-settings" className="btn-oven-settings">
+            Oven Settings
+          </Link>
         </div>
       </div>
     </div>

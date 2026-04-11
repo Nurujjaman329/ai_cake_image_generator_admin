@@ -1,35 +1,35 @@
 /* Global Styles */
 :root {
-  /* Bakery-themed color palette */
-  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --warm-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  --bakery-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-  
-  /* Primary colors */
-  --primary: #6C63FF;
-  --primary-dark: #5A52D5;
-  --primary-light: #8B85FF;
-  
+  /* Warm Bakery color palette */
+  --primary-gradient: linear-gradient(135deg, #8B6914 0%, #6B5110 100%);
+  --warm-gradient: linear-gradient(135deg, #A8860C 0%, #8B6914 100%);
+  --bakery-gradient: linear-gradient(135deg, #FDFBF7 0%, #F5F3F0 100%);
+
+  /* Primary colors - Warm Brown */
+  --primary: #8B6914;
+  --primary-dark: #6B5110;
+  --primary-light: #A8860C;
+
   /* Secondary colors */
-  --secondary: #FF6B9D;
-  --secondary-dark: #E55A8B;
-  --secondary-light: #FF8DB8;
-  
+  --secondary: #FDFBF7;
+  --secondary-dark: #F5F3F0;
+  --secondary-light: #FFFFFF;
+
   /* Accent colors */
-  --accent: #FFD93D;
-  --accent-dark: #F5C52E;
-  --accent-light: #FFE566;
-  
+  --accent: #C49A3C;
+  --accent-dark: #A8860C;
+  --accent-light: #D4B46A;
+
   /* Neutral colors */
-  --background: #FAFBFF;
+  --background: #F5F3F0;
   --surface: #FFFFFF;
-  --surface-hover: #F8F9FF;
-  --text-primary: #2D3748;
-  --text-secondary: #718096;
-  --text-muted: #A0AEC0;
-  --border: #E2E8F0;
-  --border-light: #EDF2F7;
-  
+  --surface-hover: #FDFBF7;
+  --text-primary: #2D2A26;
+  --text-secondary: #8B8579;
+  --text-muted: #A8A196;
+  --border: #E8E4DD;
+  --border-light: #F0EDE8;
+
   /* Status colors */
   --success: #48BB78;
   --success-light: #C6F6D5;
@@ -39,19 +39,19 @@
   --error-light: #FED7D7;
   --info: #4299E1;
   --info-light: #BEE3F8;
-  
+
   /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
-  
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.1);
+
   /* Border radius */
   --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
-  
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
   /* Transitions */
   --transition-fast: 150ms ease;
   --transition-normal: 250ms ease;

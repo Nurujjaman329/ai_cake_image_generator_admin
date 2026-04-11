@@ -25,14 +25,14 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   };
 
   const menuItems = [
-    { path: '/', icon: '📊', label: 'Dashboard' },
-    { path: '/ingredients', icon: '🥘', label: 'Ingredients' },
-    { path: '/categories', icon: '📁', label: 'Categories' },
-    { path: '/oven-settings', icon: '🔥', label: 'Oven Settings' },
+    { path: '/', icon: '', label: 'Dashboard' },
+    { path: '/ingredients', icon: '📦', label: 'Ingredients' },
+    { path: '/oven-settings', icon: '🔥', label: 'Oven Setting' },
+    { path: '/profile', icon: '👤', label: 'Profile' },
   ];
 
   const userName = user ? user.name : 'Admin';
-  const userRole = user ? user.role : 'Baker';
+  const userRole = user ? user.role : 'Administrator';
   const userEmail = user ? user.email : '';
 
   return (
@@ -44,11 +44,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         <div className="sidebar-header">
           <div className="logo">
             <span className="logo-icon">🧁</span>
-            {isOpen && <span className="logo-text">Felicitas</span>}
           </div>
-          <button className="toggle-btn" onClick={toggleSidebar}>
-            {isOpen ? '◀' : '▶'}
-          </button>
         </div>
 
         <nav className="sidebar-nav">
@@ -60,7 +56,6 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
               onClick={() => isMobile && toggleSidebar()}
             >
               <span className="nav-icon">{item.icon}</span>
-              {isOpen && <span className="nav-label">{item.label}</span>}
             </NavLink>
           ))}
         </nav>
@@ -70,18 +65,10 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             <div className="user-avatar">
               {userName.charAt(0).toUpperCase()}
             </div>
-            {isOpen && (
-              <div className="user-details">
-                <div className="user-name">{userName}</div>
-                <div className="user-role" title={userEmail}>{userRole}</div>
-              </div>
-            )}
           </div>
-          {isOpen && (
-            <button className="logout-btn" onClick={handleLogout} title="Logout">
-              🚪 Logout
-            </button>
-          )}
+          <button className="logout-btn" onClick={handleLogout} title="Logout">
+            🚪
+          </button>
         </div>
       </aside>
     </>

@@ -2,18 +2,18 @@
 .app {
   display: flex;
   min-height: 100vh;
-  background: var(--background);
+  background: #F5F3F0;
 }
 
 .main-content {
   flex: 1;
-  margin-left: 260px;
+  margin-left: 72px;
   transition: margin-left var(--transition-normal);
   position: relative;
 }
 
 .main-content.sidebar-collapsed {
-  margin-left: 70px;
+  margin-left: 72px;
 }
 
 .mobile-menu-btn {
