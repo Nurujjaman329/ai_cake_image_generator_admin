@@ -262,6 +262,51 @@
   transition: width 0.3s ease;
 }
 
+/* Select Container */
+.select-container {
+  padding: 0 4px;
+}
+
+.oven-select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #E8E4DD;
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+  color: #2D2A26;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.oven-select:focus {
+  border-color: #8B4513;
+  box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
+}
+
+/* Mode Display (View Mode) */
+.mode-display {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #FDFBF7;
+  border-radius: 8px;
+  border: 1px solid #E8E4DD;
+}
+
+.mode-icon-large {
+  font-size: 24px;
+}
+
+.mode-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2D2A26;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .oven-settings-page {
@@ -269,7 +314,7 @@
   }
 
   .oven-controls-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -304,5 +349,9 @@
 
   .oven-display-card {
     padding: 32px;
+  }
+
+  .oven-controls-grid {
+    grid-template-columns: 1fr;
   }
 }
