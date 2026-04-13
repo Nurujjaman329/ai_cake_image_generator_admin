@@ -1,14 +1,14 @@
 /* Global Styles */
 :root {
   /* Warm Bakery color palette */
-  --primary-gradient: linear-gradient(135deg, #8B6914 0%, #6B5110 100%);
-  --warm-gradient: linear-gradient(135deg, #A8860C 0%, #8B6914 100%);
+  --primary-gradient: linear-gradient(135deg, #8B4513 0%, #6B3410 100%);
+  --warm-gradient: linear-gradient(135deg, #A0522D 0%, #8B4513 100%);
   --bakery-gradient: linear-gradient(135deg, #FDFBF7 0%, #F5F3F0 100%);
 
-  /* Primary colors - Warm Brown */
-  --primary: #8B6914;
-  --primary-dark: #6B5110;
-  --primary-light: #A8860C;
+  /* Primary colors - Brown */
+  --primary: #8B4513;
+  --primary-dark: #6B3410;
+  --primary-light: #A0522D;
 
   /* Secondary colors */
   --secondary: #FDFBF7;

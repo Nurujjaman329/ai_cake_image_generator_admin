@@ -9,6 +9,7 @@ import IngredientList from './views/Ingredients/IngredientList';
 import IngredientForm from './views/Ingredients/IngredientForm';
 import Categories from './views/Categories/Categories';
 import OvenSettings from './views/OvenSettings/OvenSettings';
+import Profile from './views/Profile/Profile';
 import './styles/global.css';
 import './styles/App.css';
 
@@ -42,6 +43,7 @@ function App() {
                       <Route path="/ingredients/edit/:id" element={<IngredientForm />} />
                       <Route path="/categories" element={<Categories />} />
                       <Route path="/oven-settings" element={<OvenSettings />} />
+                      <Route path="/profile" element={<Profile />} />
                     </Routes>
                   </main>
                 </div>

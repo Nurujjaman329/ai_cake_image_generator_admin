@@ -91,8 +91,8 @@
 }
 
 .form-input:focus {
-  border-color: #8B6914;
-  box-shadow: 0 0 0 3px rgba(139, 105, 20, 0.1);
+  border-color: #8B4513;
+  box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
 }
 
 .form-input::placeholder {
@@ -120,11 +120,11 @@
   width: 16px;
   height: 16px;
   cursor: pointer;
-  accent-color: #8B6914;
+  accent-color: #8B4513;
 }
 
 .forgot-password {
-  color: #8B6914;
+  color: #8B4513;
   font-size: 14px;
   text-decoration: none;
   font-weight: 500;
@@ -133,12 +133,12 @@
 }
 
 .forgot-password:hover {
-  color: #6B5110;
+  color: #6B3410;
   text-decoration: underline;
 }
 
 .login-button {
-  background: #8B6914;
+  background: #8B4513;
   color: white;
   border: none;
   border-radius: 8px;
@@ -152,9 +152,9 @@
 }
 
 .login-button:hover:not(:disabled) {
-  background: #6B5110;
+  background: #6B3410;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(139, 105, 20, 0.3);
+  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.3);
 }
 
 .login-button:active:not(:disabled) {
